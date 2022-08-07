@@ -17,9 +17,6 @@ Pytorch implementation of "Learnable Lookup Table for Neural Network Quantizatio
 - numpy
 
 ### Train
-1. Download pre-trained (full-precision models)[xx] and put them in `result`.
-
-2. Begin to Train.
 ```bash
 python train.py --arch resnet20 --epochs 200 --batch_size 128 --learning_rate 0.01 --weight_decay 1e-4 --w_bits 4 --a_bits 4
 ```
@@ -69,5 +66,5 @@ To be updated
 ```
 
 ## Acknowledgements
-Part of our code is borrowed from [APot](https://github.com/thstkdgus35/EDSR-PyTorch). We thank the authors for sharing the codes.
+Some of the codes are borrowed from [APot](https://github.com/yhhhli/APoT_Quantization). We thank the authors for sharing the codes.
 
