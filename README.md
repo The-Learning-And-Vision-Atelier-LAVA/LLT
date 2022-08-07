@@ -16,7 +16,7 @@ Pytorch implementation of "Learnable Lookup Table for Neural Network Quantizatio
 - TorchVision
 - numpy
 
-#### Train
+### Train
 1. Download pre-trained (full-precision models)[xx] and put them in `result`.
 
 2. Begin to Train.
@@ -24,7 +24,7 @@ Pytorch implementation of "Learnable Lookup Table for Neural Network Quantizatio
 python train.py --arch resnet20 --epochs 200 --batch_size 128 --learning_rate 0.01 --weight_decay 1e-4 --w_bits 4 --a_bits 4
 ```
 
-#### Test
+### Test
 ```bash
 python test.py --arch resnet20 --batch_size 128 --w_bits 4 --a_bits 4
 ```
