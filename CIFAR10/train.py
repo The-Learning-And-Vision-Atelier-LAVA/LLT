@@ -35,7 +35,6 @@ args = parser.parse_args()
 def main():
     global args, best_prec
     use_gpu = torch.cuda.is_available()
-    print(args.device)
     print('=> Building model...')
 
     if use_gpu:
