@@ -37,7 +37,6 @@ class quant_lookup(nn.Module):
     def _gen_table(self):
         if self.training:
             prob = (self.table / self.tau).softmax(1)
-            self.loss_q = (1 - (prob ** 2).sum(1)).mean()
             prob = prob.view(1, 1, -1)
             table_q = F.conv1d(prob, self.T, padding=prob.size(-1) - 1).unsqueeze(-1)
             if self.is_act:
