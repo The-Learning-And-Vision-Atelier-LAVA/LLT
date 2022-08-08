@@ -8,7 +8,6 @@ Pytorch implementation of "Learnable Lookup Table for Neural Network Quantizatio
 
 <p align="center"> <img src="Figs/overview.png" width="70%"> </p>
 
-
 ## Image Classification (CIFAR-10)
 
 ### Requirements
@@ -28,7 +27,7 @@ python test.py --arch resnet20 --batch_size 128 --w_bits 4 --a_bits 4
 
 ### Results
 
-<p align="center"> <img src="Figs/cifar10.png" width="70%"> </p>
+<p align="center"> <img src="Figs/cifar10.png" width="100%"> </p>
 
 ## Image Super-Resolution
 
@@ -38,9 +37,9 @@ To be updated
 
 ### Results
 
-<p align="center"> <img src="Figs/sr.png" width="70%"> </p>
+<p align="center"> <img src="Figs/sr.png" width="100%"> </p>
 
-<p align="center"> <img src="Figs/sr_visual.png" width="70%"> </p>
+<p align="center"> <img src="Figs/sr_visual.png" width="100%"> </p>
 
 
 ## Point Cloud Classification
@@ -51,7 +50,7 @@ To be updated
 
 ### Results
 
-<p align="center"> <img src="Figs/point.png" width="70%"> </p>
+<p align="center"> <img src="Figs/point.png" width="60%"> </p>
 
 
 ## Citation
