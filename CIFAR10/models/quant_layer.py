@@ -6,12 +6,11 @@ import math
 
 
 class quant_lookup(nn.Module):
-    def __init__(self, size, granu, n_bits, is_act=True):
+    def __init__(self, granu, n_bits, is_act=True):
         super(quant_lookup, self).__init__()
         self.n_bits = n_bits
         self.is_act = is_act
         self.granu = granu
-        self.size = size
 
         if is_act:
             self.scale = nn.Parameter(torch.tensor(0.0))
@@ -104,14 +103,14 @@ class quant_lookup(nn.Module):
         scale = self.scale.exp()
 
         if self.training:
-            # quantize lookup table
+            # generate lookup table
             table_q = self._gen_table()
 
-            # lookup
+            # lookup operation
             x_q = self._lookup(x, table_q, scale)
 
         else:
-            # lookup
+            # lookup operation
             x_q = self._lookup(x, self.table_q, scale)
 
         return x_q
@@ -135,8 +134,8 @@ class QuantConv2d(nn.Module):
         else:
             self.bias = None
 
-        self.act_quant = quant_lookup(channels_out, self.granu, a_bits, True) if self.a_bits < 32 else None
-        self.kernel_quant = quant_lookup(channels_in * channels_out * kernel_size * kernel_size, self.granu, w_bits, False) if self.w_bits < 32 else None
+        self.act_quant = quant_lookup(self.granu, a_bits, True) if self.a_bits < 32 else None
+        self.kernel_quant = quant_lookup(self.granu, w_bits, False) if self.w_bits < 32 else None
 
     def _quantization(self):
         # activation quantization
@@ -165,7 +164,6 @@ class QuantConv2d(nn.Module):
             return out_q
 
 
-# 8-bit quantization for the first and the last layer
 class first_conv(nn.Conv2d):
     def __init__(self, in_channels, out_channels, kernel_size, stride=1, padding=0, dilation=1, groups=1, bias=False):
         super(first_conv, self).__init__(in_channels, out_channels, kernel_size, stride, padding, dilation, groups, bias)
