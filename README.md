@@ -66,5 +66,5 @@ To be updated
 ```
 
 ## Acknowledgements
-Some of the codes are borrowed from [APot](https://github.com/yhhhli/APoT_Quantization). We thank the authors for sharing the codes.
+Part of the code is borrowed from [APot](https://github.com/yhhhli/APoT_Quantization). We thank the authors for sharing the codes.
 
