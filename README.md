@@ -50,7 +50,7 @@ To be updated
 
 ### Results
 
-<p align="center"> <img src="Figs/point.png" width="60%"> </p>
+<p align="center"> <img src="Figs/point.png" width="50%"> </p>
 
 
 ## Citation
