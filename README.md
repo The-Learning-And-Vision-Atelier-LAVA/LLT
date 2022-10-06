@@ -47,7 +47,11 @@ python test.py --arch resnet20 --batch_size 128 --w_bits 4 --a_bits 4
 
 For more informaiton, please refer to [EDSR(PyTorch)](https://github.com/thstkdgus35/EDSR-PyTorch).
 
-### 2. Begin to train
+### 2. Prepare pre-trained full-precision model
+
+2.1 Download pre-trained full-precision model (e.g., [EDSR](https://cv.snu.ac.kr/research/EDSR/model_pytorch.tar)) to 'model/EDSR'.
+
+### 3. Begin to train
 ```bash
 python main.py --model EDSR --scale 4 --w_bits 4 --a_bits 4 --save EDSR_w4a4 --pre_train model/EDSR/EDSR_x4.pth --patch_size 48 --batch_size 12
 ```
