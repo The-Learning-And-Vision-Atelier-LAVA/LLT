@@ -31,9 +31,36 @@ python test.py --arch resnet20 --batch_size 128 --w_bits 4 --a_bits 4
 
 ## Image Super-Resolution
 
-### Train & Test
+### Requirements
+- PyTorch == 1.1.0
+- numpy
+- skimage
+- imageio
+- cv2
 
-To be updated
+## Train
+### 1. Prepare training data 
+
+1.1 Download DIV2K training data (800 training + 100 validtion images) from [DIV2K dataset](https://data.vision.ee.ethz.ch/cvl/DIV2K/) or [SNU_CVLab](https://cv.snu.ac.kr/research/EDSR/DIV2K.tar).
+
+1.2 Specify '--dir_data' based on the HR and LR images path. In option.py, '--ext' is set as 'sep_reset', which first convert .png to .npy. If all the training images (.png) are converted to .npy files, then set '--ext sep' to skip converting files.
+
+For more informaiton, please refer to [EDSR(PyTorch)](https://github.com/thstkdgus35/EDSR-PyTorch).
+
+### 2. Begin to train
+```bash
+python main.py --model EDSR --scale 4 --w_bits 4 --a_bits 4 --save EDSR_w4a4 --pre_train model/EDSR/EDSR_x4.pth --patch_size 48 --batch_size 12
+```
+
+## Test
+### 1. Prepare test data 
+Download [benchmark datasets](https://github.com/xinntao/BasicSR/blob/a19aac61b277f64be050cef7fe578a121d944a0e/docs/Datasets.md) (e.g., Set5, Set14 and other test sets) and prepare HR/LR images in `testsets/benchmark` following the example of `testsets/benchmark/Set5`.
+
+
+### 2. Begin to test
+```bash
+python main.py --dir_data testsets --data_test Set5 --model EDSR --scale 4 --w_bits 4 --a_bits 4 --pre_train experiment/EDSR_w4a4/model/model_40.pt --test_only --save_results
+```
 
 ### Results
 
